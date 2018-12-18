@@ -4,14 +4,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def index(resuest):
+def index(request):
     return HttpResponse('Hello word. you are at the polls index')
 
 
-from polls.models import Question, Choice
-
-
-def dbapi():
-    Question.objects.all()
-
-dbapi()
+def detail(request, question_id):
+    return HttpResponse("You're looking at question %s,%s." % (question_id, request.GET.get('id')))
